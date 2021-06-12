@@ -3,7 +3,7 @@
   "publisher": "NikhilSingh",
   "displayName": "fluid-scoretools",
   "description": "Tools for generating and modifying fluid score strings.",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1",
   "engines": {
     "vscode": "^1.56.0"
   },
@@ -13,6 +13,10 @@
   "activationEvents": [
     "*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nikhilsinghmus/fluid-scoretools.git"
+  },
   "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
