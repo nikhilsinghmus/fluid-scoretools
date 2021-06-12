@@ -1,8 +1,9 @@
 {
   "name": "fluid-scoretools",
+  "publisher": "NikhilSingh",
   "displayName": "fluid-scoretools",
-  "description": "Tools for generating and manipulating fluid score strings.",
-  "version": "0.0.1",
+  "description": "Tools for generating and modifying fluid score strings.",
+  "version": "0.0.1-alpha",
   "engines": {
     "vscode": "^1.56.0"
   },

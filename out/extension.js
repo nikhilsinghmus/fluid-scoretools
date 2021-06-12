@@ -2,20 +2,18 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.activate = void 0;
 const vscode = require("vscode");
-const tools = require("./tools");
+const editors_1 = require("./editors");
 const utils_1 = require("./utils");
 function activate(context) {
     const provider = vscode.languages.registerCompletionItemProvider("javascript", {
         provideCompletionItems(document, position) {
-            let k;
-            let f;
-            for (const [k, tool] of Object.entries(tools)) {
+            for (const [k, editor] of Object.entries(editors_1.default)) {
                 const match = ":" + k;
                 const linePrefix = document.lineAt(position).text.substr(0, position.character);
                 if (linePrefix.includes(match)) {
                     const cmdStart = linePrefix.indexOf(match);
-                    const params = utils_1.getParams(tool.params, linePrefix.substr(linePrefix.indexOf(match)));
-                    const item = Object.assign(Object.assign({}, new vscode.CompletionItem(tool.name)), tool.editFn(match, linePrefix, position, cmdStart, params));
+                    const params = utils_1.getParams(editor.params, linePrefix.substr(linePrefix.indexOf(match)));
+                    const item = Object.assign(Object.assign(Object.assign({}, new vscode.CompletionItem(editor.name)), editor.editFn(match, linePrefix, position, cmdStart, params)), { detail: editor.description });
                     return [item];
                 }
             }
